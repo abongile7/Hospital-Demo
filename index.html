@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Statement Advisor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>Bank Statement Advisor</h1>
+        <p>
+          Upload your bank statement (CSV) to automatically review transactions,
+          discover where most of your money goes, and get simple savings advice.
+        </p>
+      </header>
+
+      <section class="card upload-card">
+        <h2>1) Upload Statement</h2>
+        <p class="hint">
+          CSV columns supported: <code>date</code>, <code>description</code>,
+          <code>amount</code>, optional <code>category</code>.
+        </p>
+        <input id="statementFile" type="file" accept=".csv,text/csv" />
+        <div id="status" class="status">No file uploaded yet.</div>
+      </section>
+
+      <section id="dashboard" class="dashboard hidden">
+        <section class="card metrics">
+          <h2>2) Financial Summary</h2>
+          <div class="metric-grid">
+            <article>
+              <h3>Total Income</h3>
+              <p id="totalIncome">$0.00</p>
+            </article>
+            <article>
+              <h3>Total Spending</h3>
+              <p id="totalSpending">$0.00</p>
+            </article>
+            <article>
+              <h3>Net Cash Flow</h3>
+              <p id="netCashFlow">$0.00</p>
+            </article>
+            <article>
+              <h3>Transactions</h3>
+              <p id="transactionCount">0</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>3) Where Your Money Goes</h2>
+          <ul id="categoryList" class="category-list"></ul>
+        </section>
+
+        <section class="card">
+          <h2>4) Personalized Advice</h2>
+          <ul id="adviceList" class="advice-list"></ul>
+        </section>
+
+        <section class="card">
+          <h2>5) Transactions</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Category</th>
+                  <th class="amount-col">Amount</th>
+                </tr>
+              </thead>
+              <tbody id="transactionTable"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

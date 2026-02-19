@@ -1,0 +1,130 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --text: #16213d;
+  --muted: #5a6a8a;
+  --accent: #3f6fff;
+  --success: #0c8f4d;
+  --danger: #b63333;
+  --border: #d6deee;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  width: min(1080px, 92vw);
+  margin: 2rem auto 3rem;
+}
+
+header h1 {
+  margin-bottom: 0.4rem;
+}
+
+header p {
+  color: var(--muted);
+  max-width: 75ch;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  margin-top: 1rem;
+  box-shadow: 0 6px 14px rgba(16, 35, 79, 0.05);
+}
+
+.hint {
+  color: var(--muted);
+  margin-top: 0;
+}
+
+input[type='file'] {
+  display: block;
+  margin-top: 0.8rem;
+}
+
+.status {
+  margin-top: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.hidden {
+  display: none;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.metric-grid article {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.9rem;
+}
+
+.metric-grid h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.metric-grid p {
+  margin: 0.4rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.category-list,
+.advice-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.category-list li,
+.advice-list li {
+  margin-bottom: 0.5rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem;
+}
+
+.amount-col,
+.amount-cell {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.income {
+  color: var(--success);
+}
+
+.spending {
+  color: var(--danger);
+}
