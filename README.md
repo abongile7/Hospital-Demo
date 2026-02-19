@@ -1,6 +1,6 @@
 # Bank Statement Advisor
 
-A simple browser app that lets you upload a CSV bank statement, analyzes transactions, and provides spending insights plus savings advice.
+A simple browser app that lets you upload a CSV bank statement, analyze transactions, and get practical savings advice.
 
 ## Run locally
 
@@ -14,16 +14,28 @@ Then visit `http://localhost:8000`.
 
 ## Deploy to Netlify
 
-This repo now includes `netlify.toml`, so Netlify can deploy it as a static site with no build step.
+This repository includes `netlify.toml`, so Netlify can host it as a static site without a build command.
 
-### Option A: Netlify UI (recommended)
+### Fastest deploy (no GitHub connection required)
+Use this if your Netlify account is not connected to GitHub/GitLab/Bitbucket.
+
+1. In this project folder, create a zip of the site files:
+   ```bash
+   zip -r bank-statement-advisor.zip index.html app.js styles.css README.md netlify.toml
+   ```
+2. In Netlify, go to **Projects**.
+3. Click **Add new project** → **Deploy manually**.
+4. Drag and drop `bank-statement-advisor.zip`.
+5. Netlify will publish instantly and provide a live URL.
+
+### Continuous deploy (recommended for updates)
 1. Push this repository to GitHub/GitLab/Bitbucket.
-2. In Netlify, click **Add new site** → **Import an existing project**.
-3. Select this repo.
-4. Keep build settings empty (Netlify will read `netlify.toml`).
-5. Deploy.
+2. In Netlify, click **Add new project** → **Import an existing project**.
+3. Select your repository.
+4. Keep build settings empty (Netlify reads `netlify.toml`).
+5. Click **Deploy site**.
 
-### Option B: Netlify CLI
+### Netlify CLI deploy (optional)
 ```bash
 npm i -g netlify-cli
 netlify login
@@ -45,4 +57,4 @@ date,description,amount,category
 
 Notes:
 - `amount` should be positive for income and negative for spending.
-- `category` is optional; if left blank, the app tries to infer one from description keywords.
+- `category` is optional; if blank, the app tries to infer one from description keywords.
