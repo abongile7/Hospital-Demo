@@ -14,21 +14,22 @@ Then visit `http://localhost:8000`.
 
 ## Deploy to Netlify
 
-This repository includes `netlify.toml`, so Netlify can host it as a static site without a build command.
+This repository includes `netlify.toml`, so Netlify can host it as a static site with no build command.
 
-### Fastest deploy (no GitHub connection required)
-Use this if your Netlify account is not connected to GitHub/GitLab/Bitbucket.
+### Recommended for your current Netlify setup (manual deploy)
+If your team is **goci** and Git providers are not connected yet, this is the fastest path.
 
-1. In this project folder, create a zip of the site files:
+1. In this project folder, create a zip package:
    ```bash
    zip -r bank-statement-advisor.zip index.html app.js styles.css README.md netlify.toml
    ```
-2. In Netlify, go to **Projects**.
-3. Click **Add new project** → **Deploy manually**.
-4. Drag and drop `bank-statement-advisor.zip`.
-5. Netlify will publish instantly and provide a live URL.
+2. In Netlify, switch to your **goci** team.
+3. Go to **Projects**.
+4. Click **Add new project** → **Deploy manually**.
+5. Drag and drop `bank-statement-advisor.zip`.
+6. Wait for publish, then open the generated `*.netlify.app` URL.
 
-### Continuous deploy (recommended for updates)
+### Continuous deploy (optional, after connecting GitHub/GitLab/Bitbucket)
 1. Push this repository to GitHub/GitLab/Bitbucket.
 2. In Netlify, click **Add new project** → **Import an existing project**.
 3. Select your repository.
@@ -42,6 +43,15 @@ netlify login
 netlify deploy --dir .
 netlify deploy --prod --dir .
 ```
+
+## Netlify config used by this project
+
+`netlify.toml` is configured as:
+- `publish = "."` so your root folder is served directly.
+- common security headers:
+  - `X-Content-Type-Options: nosniff`
+  - `X-Frame-Options: DENY`
+  - `Referrer-Policy: strict-origin-when-cross-origin`
 
 ## CSV format
 
