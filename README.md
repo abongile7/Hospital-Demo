@@ -52,5 +52,6 @@ date,description,amount,category
 
 Notes:
 - `amount` should be positive for income and negative for spending.
+- Amounts are displayed in South African Rand (ZAR / R).
 - Parentheses amounts are supported (example: `(120.45)` becomes `-120.45`).
 - `category` is optional; if blank, the app tries to infer one from description keywords.
